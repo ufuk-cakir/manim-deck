@@ -1,6 +1,5 @@
 # Manim Research Slides Template for Academic Presentations
-
-**Created by Ufuk Çakır**
+**Ufuk Çakır**
 
 This repository includes templates for making animated research presentations with
 [Manim](https://www.manim.community/) and [Manim Slides](https://manim-slides.eertmans.be/).
