@@ -1,0 +1,33 @@
+
+
+debug: false
+
+
+env:
+  sampler: random
+  num_burning_cells: 2
+  vegetation_scaling_factor: 1.0
+  wind_angle: 45
+  wind_speed: 5
+  grid_height: 20
+  grid_width: 20
+  max_steps_in_episode: 100
+  margin: 5
+  thickness: 1
+  opening_size: 2
+  opening_side: 2
+  agent_initial_x: -1
+  agent_initial_y: -1
+  agent_actions_per_fire_step: 5
+  water_budget: 10000
+  forecast_horizon: 0
+  render_mode: "rgb_array"
+  agent_view_radius: 3
+
+
+model:
+  p_continue: 0.25
+  p_base: 0.15
+  s_1: 0.10798
+  w_1: 0.53604
+  w_2: 0.5396
