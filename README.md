@@ -1,4 +1,4 @@
-# Manim Research Slides Template for Research Presentations
+# Manim Research Slides Template for Academic Presentations
 
 **Created by Ufuk Çakır**
 
