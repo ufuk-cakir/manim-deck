@@ -7,8 +7,8 @@ This repository includes templates for making animated research presentations wi
 
 
 > This repo gives you a reusable Python package (`manim_deck`) with
-> pre-built slide templates and animation modules. You can fork it, customise it, and use it to
-> build your next conference talk!
+> pre-built slide templates and animation modules. You can fork, customise, and use it to
+> build your next cool conference talk!
 
 
 ---
@@ -43,7 +43,7 @@ Have Fun!
 manim-deck/
 │
 ├── pyproject.toml              # Package definition (uv / pip)
-├── README.md                   # You are here
+├── README.md                  
 │
 ├── src/
 │   └── manim_deck/             # The importable package
@@ -118,10 +118,10 @@ arrow  = Arrow(LEFT, RIGHT)
 Animations **transform Mobjects over time**. You trigger them with `self.play()`.
 
 ```python
-self.play(Create(circle))              # draw it
-self.play(circle.animate.shift(RIGHT)) # move it
-self.play(Transform(circle, square))   # morph it
-self.play(FadeOut(circle))             # remove it
+self.play(Create(circle))              # draw 
+self.play(circle.animate.shift(RIGHT)) # move 
+self.play(Transform(circle, square))   # morph 
+self.play(FadeOut(circle))             # remove 
 ```
 
 Common animations: `FadeIn`, `FadeOut`, `Create`, `Write`, `GrowArrow`,
@@ -158,7 +158,7 @@ Render with: `manim render my_file.py MyScene`
 
 
 Manim Slides extends Manim with a `Slide` class. The main new concept is
-**`self.next_slide()`** — it creates a pause point (like pressing → in
+**`self.next_slide()`** which creates a pause point (like pressing the arrow key in
 PowerPoint).
 
 ```python
@@ -202,7 +202,7 @@ navigation, fullscreen mode, and speaker notes for free.
 
 ## Using the `manim_deck` template
 
-### Your first talk
+### First steps
 
 Create a new folder in `talks/` and a `main.py`:
 
@@ -255,7 +255,7 @@ animation.
 
 ### Themes
 
-Themes are simple dataclasses that control general. Create your own or use a built-in:
+Themes are simple dataclasses that control general design. Create your own or use a built-in:
 
 ```python
 from manim_deck.templates import Theme
@@ -324,11 +324,7 @@ If you build a polished, reusable animation module, consider opening a Pull Requ
 so others can use it too.
 
 For example: if you create a clean animation of an **autoencoder architecture**
-(encoder, latent space, decoder) that works well for research talks, that's exactly
-the kind of template this repo should include!!
-
-Small, well-documented contributions are very welcome — they help everyone present
-research ideas faster and better.
+(encoder, latent space, decoder) that works well for research talks, consider creating a PR!
 
 ---
 
