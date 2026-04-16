@@ -76,32 +76,30 @@ what Manim can do!
 
 **Why I think you should use it for academic presentations**
 
-- **You want your audience to stay engaged.** Animated visuals keep your
-  audience focused in ways that static bullet points can not do.
-- **Step-by-step animations** let you build up complex ideas incrementally, and is
-  perfect for explaining algorithms, architectures, or experimental pipelines, where you do not want to overwhelm your audience with all the details at once.
-- **Building the animation forces you to think.** Translating your research
-  into an animation sequence makes you distil the core message in a way that is accessible to a broad audience.
-- **Everything is version-controlled.** Your slides are `.py` files, which makes it easy to track changes or revert to old versions.
+- Animated visuals are way more engaging than static bullet points
+- Step-by-step animations let you build up complex ideas incrementally
+- Building the animation forces you to translate your research into an animation sequence that distils the core message.
+- Everything is version-controlled since your slides are `.py` files, which makes it easy to track changes or revert to old versions.
 - **PROGRAMMATIC.** Evyerthing is Python. Which means you can use for loops, functions, classes to build complex animations. You need to draw 50 boxes? Thats way easier with a loop than copy-pasting in PowerPoint. You want to reuse the same architecture diagram across multiple talks, but with different labels? A reusable animation module is perfect for that!!!
 
 **The tradeoffs:**
 
 - Steeper learning curve than drag-and-drop tools.
-- Iteration is slower (render → check → tweak → re-render).
+- can be a rabbit hole
+- Iteration is slower (render, check, tweak, re-render).
 - Not great for last-minute slide reshuffling 5 minutes before your talk.
 
 
 
 ---
 
-## Core Manim concepts (justcrash course)
+## Core Manim concepts (just a crash course)
 
 This is by no means a comprehensive Manim tutorial! There are so many great resources out there to dive deeper, but this is just to get you started and familiar with the core concepts.
 
 ### 1. Mobjects (Mathematical Objects)
 
-Everything on screen is a **Mobject**. Text, shapes, arrows, equations are all Python objects that have additional properties and methods.
+Everything on screen is a Mobject. Text, shapes, arrows, equations are all Python objects that have additional properties and methods.
 
 ```python
 from manim import *
@@ -114,7 +112,7 @@ arrow  = Arrow(LEFT, RIGHT)
 
 ### 2. Animations
 
-Animations **transform Mobjects over time**. You trigger them with `self.play()`.
+Animations transform Mobjects over time. You trigger them with `self.play()`.
 
 ```python
 self.play(Create(circle))              # draw 
@@ -138,7 +136,7 @@ mob.next_to(other, RIGHT)     # relative to another Mobject
 
 ### 4. Scenes
 
-A **Scene** is the canvas. You subclass it and implement `construct()`:
+A Scene is the canvas. You subclass it and implement `construct()`:
 
 ```python
 class MyScene(Scene):
@@ -157,7 +155,7 @@ Render with: `manim render my_file.py MyScene`
 
 
 Manim Slides extends Manim with a `Slide` class. The main new concept is
-**`self.next_slide()`** which creates a pause point (like pressing the arrow key in
+`self.next_slide()` which creates a pause point (like pressing the arrow key in
 PowerPoint).
 
 ```python
@@ -168,7 +166,7 @@ class MyPresentation(Slide):
         title = Text("Hello, A2I!")
         self.play(Write(title))
 
-        self.next_slide()          # this creates a breakpoint in your presentation!
+        self.next_slide()          # this creates a breakpoint in your presentation
 
         self.play(FadeOut(title))
         conclusion = Text("Thanks!")
@@ -191,8 +189,7 @@ manim-slides convert MyPresentation output.html --open
 manim-slides convert MyPresentation output.pdf
 ```
 
-The HTML export uses **Reveal.js** under the hood, so you get keyboard
-navigation, fullscreen mode, and speaker notes for free.
+The HTML export uses Reveal.js under the hood.
 
 
 > **Personal Tip** I find that the live presentantion mode uses a lot of memory and crashes sometimes, so I prefer to export to HTML and present from the browser to be safe.
@@ -234,7 +231,7 @@ class MyConferenceTalk(TemplateSlide):
 ```
 
 ### Available slide types
-These are the slide types that are defined in `TemplateSlide` and ready to use. 
+These are the slide types that I defined in `TemplateSlide` and ready to use. 
 You can also create your own custom slide types by subclassing `TemplateSlide` and adding new methods.
 
 | Method | What it does |
@@ -261,15 +258,15 @@ from manim_deck.templates import Theme
 
 MY_THEME = Theme(
     name="oxford",
-    bg="#002147",           # Oxford blue
+    bg="#002147",           
     panel="#0A3060",
-    accent="#F0C808",       # Gold
+    accent="#F0C808",      
     text="#FFFFFF",
     heading_size=52,
     body_size=34,
 )
 
-class OxfordTalk(TemplateSlide):
+class MyTalk(TemplateSlide):
     theme = MY_THEME
     # ...
 ```
@@ -303,7 +300,7 @@ Then use it in any talk:
 ```python
 from manim_deck.animations.my_module import NeuralNetModule
 
-class AnyTalk(TemplateSlide):
+class Talk(TemplateSlide):
     def construct(self):
         self.update_canvas()
         NeuralNetModule(self, layers=(3, 8, 8, 1)).run()
