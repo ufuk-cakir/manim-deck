@@ -3,13 +3,17 @@ name = "manim-deck"
 version = "0.1.0"
 description = "Reusable Manim Slides templates and animations for research presentations"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Ufuk Çakır" }]
 
+# Tested with manim 0.21.0, manim-slides 5.7.0, Pillow 12.2 (October 2026).
+# manim 0.22 breaks manim-slides 5.7 (`write_to_movie`), and Pillow 13 breaks
+# ImageMobject in manim 0.21 (`Image.fromarray(..., mode=...)`).
 dependencies = [
-    "manim>=0.18.0",
-    "manim-slides[pyqt6]>=5.0.0",
+    "manim>=0.20,<0.22",
+    "manim-slides[pyqt6]>=5.1,<6",
+    "pillow<13",
 ]
 
 [project.optional-dependencies]

@@ -36,3 +36,7 @@ slides/
 
 images/
 *.npz
+
+# README clip renders (docs/make_gifs.py)
+docs/.build/
+preview/

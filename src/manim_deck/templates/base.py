@@ -250,7 +250,11 @@ class TemplateSlide(Slide):
         )
 
         if lagged_start:
-            self.play(self._anim(header, text_anim), run_time=run_time)
+            self.play(
+                self._anim(header, text_anim),
+                FadeIn(footer, shift=UP * 0.2),
+                run_time=run_time,
+            )
             for bullet in bullets:
                 self.play(self._anim(bullet, text_anim), run_time=run_time)
                 self.next_slide()
@@ -280,7 +284,7 @@ class TemplateSlide(Slide):
         header = Text(title_text, font_size=t.heading_size, color=t.accent).to_edge(UP)
         img = ImageMobject(image_path).set_height(image_height)
 
-        group = VGroup(img)
+        group = Group(img)
         if caption:
             cap = Text(caption, font_size=24, color=t.text).next_to(img, DOWN, buff=0.2)
             group.add(cap)
